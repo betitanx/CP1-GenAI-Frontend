@@ -7,7 +7,7 @@ Checkpoint integrado de **IA Generativa e Front-end — 2TIAPF (Manhã)**. Aplic
 | Integrante | RM |
 |---|---|
 | Lucca Phelipe Masini | 564121 |
-| Luiz Henrique Poss | 56217 |
+| Luiz Henrique Poss | 562177 |
 | Igor Paixão Sarak | 563726 |
 | Bernardo Braga Perobeli | 562468 |
 | Felipe Stefani Honorato | 563380 |
