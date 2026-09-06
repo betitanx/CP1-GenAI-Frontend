@@ -166,20 +166,6 @@ Os testes substituem a LLM por respostas controladas para validar o contrato sem
 - A aplicação foi desenhada para execução local, sem autenticação, conforme o escopo do checkpoint.
 - Os documentos usados no pipeline são enviados ao provedor configurado nas etapas de geração, resposta e avaliação.
 
-## Demonstração em vídeo
-
-**[Vídeo de demonstração (MP4, 2min09s)](docs/demonstracao.mp4)**
-
-O vídeo apresenta o fluxo e os resultados reais de uma execução com OpenAI, exportados pela API. É uma apresentação dos dados, não uma captura contínua da interface. O [JSON da execução real](docs/resultado-real.json) permite conferir perguntas, contextos, respostas e justificativas.
-
-### Validação realizada
-
-- Dez testes automatizados aprovados, incluindo renderização da interface Streamlit.
-- Fluxo real acionado pela interface: dois documentos, sete chunks e três perguntas geradas e respondidas por `gpt-4o-mini`.
-- Avaliação real por `gpt-4o-mini`, com justificativas para as três métricas e médias de 1,00 nessa execução. Esse conjunto pequeno não comprova desempenho geral do sistema.
-- Conferência no navegador das perguntas, respostas, contextos recuperados e justificativas, sem erros no console na verificação final.
-- Dois avisos de descontinuação de dependências transitivas surgiram nos testes (Starlette/httpx e AnyIO), sem falhas.
-
 ## Referências
 
 - [FastAPI: corpos de requisição](https://fastapi.tiangolo.com/tutorial/body/)
