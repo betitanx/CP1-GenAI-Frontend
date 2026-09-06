@@ -64,8 +64,8 @@ Se o PowerShell impedir a ativação, use diretamente `.venv\Scripts\python.exe`
 2. Em **Documentos**, ajuste o tamanho e a sobreposição dos chunks e clique em **Processar documentos**. Expanda cada documento para visualizar seus chunks.
 3. Opcionalmente, ative **Utilizar personas**, informe uma persona por linha e clique em **Salvar personas**. Desative e salve para gerar sem personas.
 4. Em **Dataset e RAG**, escolha a quantidade de perguntas e clique em **Gerar dataset**. As perguntas são criadas pela LLM a partir dos chunks reais.
-5. Clique em **Executar perguntas no RAG**. A recuperação usa a pergunta gerada para buscar contextos, sem forçar o chunk de origem entre os resultados.
-6. Em **Avaliação**, clique em **Avaliar respostas**. Veja médias, notas por pergunta, justificativas, contextos e respostas. Exporte o conjunto pelo botão **Baixar resultados em JSON**.
+5. Clique em **Executar perguntas no RAG**. As respostas aparecem abaixo das respectivas perguntas na mesma aba, com os contextos recuperados em uma seção expansível. A recuperação usa a pergunta gerada para buscar contextos, sem forçar o chunk de origem entre os resultados.
+6. Em **Avaliação**, clique em **Avaliar respostas**. Veja médias, notas por pergunta e justificativas. Exporte o conjunto pelo botão **Baixar resultados em JSON**.
 
 Reprocessar documentos apaga o dataset anterior. Gerar um dataset substitui o anterior. Executar novamente o RAG invalida as notas antigas. As operações são gravadas apenas ao concluir a etapa com sucesso; falhas preservam o estado anterior. Chamadas já feitas ao provedor durante uma etapa que falhou podem ter sido cobradas.
 

@@ -97,6 +97,17 @@ with perguntas:
                        "Documento": i["fonte"]["documento"], "Chunk de origem": i["fonte"]["chunk_id"],
                        "Estado": "Avaliada" if i["metricas"] else "Respondida" if i["resposta"] else "Gerada"}
                       for i in dataset], hide_index=True, use_container_width=True)
+    for i, item in enumerate(dataset, 1):
+        with st.container(border=True):
+            st.markdown(f"**{i:02d} · {item['pergunta']}**")
+            st.write(item["resposta"] or "Aguardando execução do RAG.")
+            if item["resposta"]:
+                with st.expander("Contextos recuperados"):
+                    for contexto in item["contextos"]:
+                        st.markdown(f"**{contexto['documento']} · {contexto['id']} · similaridade {contexto['similaridade']:.3f}**")
+                        st.text(contexto["texto"])
+                    if not item["contextos"]:
+                        st.info("Nenhum contexto apresentou similaridade positiva com a pergunta.")
 
 with resultados:
     st.header("Avaliação sem ground truth")
@@ -109,20 +120,13 @@ with resultados:
         st.dataframe([{"Pergunta": i["pergunta"], **{nomes[m]: i["metricas"][m]["nota"] for m in nomes}}
                       for i in dataset if i["metricas"]], hide_index=True, use_container_width=True)
     for i, item in enumerate(dataset, 1):
+        if not item["metricas"]:
+            continue
         with st.expander(f"{i:02d} · {item['pergunta']}"):
-            st.markdown("**Resposta gerada**")
-            st.write(item["resposta"] or "Aguardando execução do RAG.")
-            st.markdown("**Contextos recuperados**")
-            for contexto in item["contextos"]:
-                st.markdown(f"**{contexto['documento']} · {contexto['id']} · similaridade {contexto['similaridade']:.3f}**")
-                st.text(contexto["texto"])
-            if not item["contextos"] and item["resposta"]:
-                st.info("Nenhum contexto apresentou similaridade positiva com a pergunta.")
-            if item["metricas"]:
-                for metrica, nome in nomes.items():
-                    nota = item["metricas"][metrica]
-                    st.markdown(f"**{nome}: {nota['nota']:.2f}**")
-                    st.write(nota["justificativa"])
+            for metrica, nome in nomes.items():
+                nota = item["metricas"][metrica]
+                st.markdown(f"**{nome}: {nota['nota']:.2f}**")
+                st.write(nota["justificativa"])
     if dataset:
         st.download_button("Baixar resultados em JSON", json.dumps(estado, ensure_ascii=False, indent=2),
                            "avaliacao-rag.json", "application/json")
