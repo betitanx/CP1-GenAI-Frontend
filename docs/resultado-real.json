@@ -1,0 +1,182 @@
+{
+  "dataset": [
+    {
+      "id": "7ee96621-7a6f-41bb-b91a-7efa7ff184ce",
+      "pergunta": "Quais são os cuidados a serem tomados ao realizar a chunkização de documentos?",
+      "persona": null,
+      "fonte": {
+        "documento": "guia_rag.md",
+        "chunk_id": "b0b4791572dd-1"
+      },
+      "contextos": [
+        {
+          "id": "b0b4791572dd-1",
+          "documento_id": "b0b4791572dd",
+          "documento": "guia_rag.md",
+          "texto": "# Guia de RAG e avaliação ## Recuperação de informações Retrieval-Augmented Generation (RAG) combina recuperação de documentos com geração de texto. Primeiro, o sistema divide os documentos em trechos menores chamados chunks. Uma pergunta é comparada com esses trechos, e os mais relevantes são enviados ao modelo de linguagem como contexto. A resposta deve se apoiar no conteúdo recuperado. Se o contexto não contém a informação solicitada, o modelo deve declarar que não há informação suficiente. ## Chunkização A chunkização divide um documento em unidades de recuperação. Chunks muito pequenos podem perder o contexto necessário para compreender uma ideia. Chunks muito grandes podem misturar temas e incluir informações irrelevantes. A sobreposição repete uma parte do trecho anterior para preservar continuidade",
+          "inicio_palavra": 0,
+          "fim_palavra": 120,
+          "similaridade": 0.23088
+        },
+        {
+          "id": "73bcb3d8782b-3",
+          "documento_id": "73bcb3d8782b",
+          "documento": "politica_biblioteca.md",
+          "texto": "feita no portal com até sete dias de antecedência e dura no máximo duas horas. Há tolerância de quinze minutos para chegada do responsável. Após esse período, a sala pode ser liberada para outro grupo. O uso das salas exige respeito ao limite de ocupação e ao horário reservado.",
+          "inicio_palavra": 200,
+          "fim_palavra": 249,
+          "similaridade": 0.1165
+        },
+        {
+          "id": "b0b4791572dd-2",
+          "documento_id": "b0b4791572dd",
+          "documento": "guia_rag.md",
+          "texto": "muito grandes podem misturar temas e incluir informações irrelevantes. A sobreposição repete uma parte do trecho anterior para preservar continuidade nas fronteiras. Cada chunk deve guardar um identificador e o nome do documento de origem, permitindo rastrear a informação recuperada. ## Recuperação lexical TF-IDF representa textos por pesos associados às palavras. Termos frequentes em um texto, mas menos comuns no conjunto de documentos, recebem maior importância. A similaridade de cosseno compara a direção dos vetores. Os trechos com maior similaridade com a pergunta são selecionados. Essa abordagem funciona sem uma API de embeddings, mas pode falhar quando a pergunta usa sinônimos ou vocabulário diferente do documento. ## Avaliação sem gabarito Na avaliação sem ground truth, não existem respostas humanas de",
+          "inicio_palavra": 100,
+          "fim_palavra": 220,
+          "similaridade": 0.10369
+        }
+      ],
+      "resposta": "Ao realizar a chunkização de documentos, é importante tomar os seguintes cuidados: 1. Evitar chunks muito pequenos, pois eles podem perder o contexto necessário para compreender uma ideia. 2. Evitar chunks muito grandes, pois podem misturar temas e incluir informações irrelevantes. 3. Implementar sobreposição, que repete uma parte do trecho anterior para preservar a continuidade nas fronteiras. 4. Cada chunk deve guardar um identificador e o nome do documento de origem, permitindo rastrear a informação recuperada. (Referências: b0b4791572dd-1, b0b4791572dd-2)",
+      "metricas": {
+        "faithfulness": {
+          "nota": 1.0,
+          "justificativa": "A resposta apresenta afirmações que são diretamente sustentadas pelos contextos fornecidos. Todos os cuidados mencionados na resposta estão claramente descritos nos trechos do documento 'guia_rag.md', que discute a chunkização e os problemas associados a chunks muito pequenos e muito grandes, além da importância da sobreposição e da identificação dos chunks."
+        },
+        "answer_relevancy": {
+          "nota": 1.0,
+          "justificativa": "A resposta aborda diretamente a pergunta sobre os cuidados a serem tomados ao realizar a chunkização de documentos, listando de forma clara e organizada os pontos relevantes. Todos os itens mencionados são pertinentes ao tema da chunkização."
+        },
+        "context_utilization": {
+          "nota": 1.0,
+          "justificativa": "A resposta utiliza completamente as informações relevantes dos contextos. Os trechos do documento 'guia_rag.md' foram utilizados para fundamentar cada um dos cuidados mencionados, garantindo que a resposta esteja bem embasada nas informações disponíveis."
+        }
+      },
+      "modelo_gerador": "gpt-4o-mini",
+      "criado_em": "2026-09-06T01:19:56.410431+00:00",
+      "top_k": 3,
+      "modelo_resposta": "gpt-4o-mini",
+      "modelo_juiz": "gpt-4o-mini",
+      "avaliado_em": "2026-09-06T01:20:48.896542+00:00"
+    },
+    {
+      "id": "f4dacc87-6620-45ce-843b-35271547a43c",
+      "pergunta": "Quais critérios devem ser seguidos por um modelo de linguagem ao atuar como juiz na avaliação sem gabarito?",
+      "persona": null,
+      "fonte": {
+        "documento": "guia_rag.md",
+        "chunk_id": "b0b4791572dd-3"
+      },
+      "contextos": [
+        {
+          "id": "b0b4791572dd-3",
+          "documento_id": "b0b4791572dd",
+          "documento": "guia_rag.md",
+          "texto": "sinônimos ou vocabulário diferente do documento. ## Avaliação sem gabarito Na avaliação sem ground truth, não existem respostas humanas de referência para comparar diretamente. Um modelo de linguagem pode atuar como juiz, analisando a pergunta, os contextos recuperados e a resposta gerada. O juiz deve seguir critérios explícitos e produzir notas acompanhadas de justificativas. O resultado é uma estimativa e pode variar conforme o modelo e o prompt utilizados. ## Métricas Faithfulness mede se as afirmações da resposta são sustentadas pelos contextos recuperados. Uma resposta pode ser plausível e ainda assim receber uma nota baixa se apresentar informações que não estão nas fontes. Answer Relevancy mede se a resposta atende à pergunta de forma pertinente e direta. Context Utilization mede",
+          "inicio_palavra": 200,
+          "fim_palavra": 320,
+          "similaridade": 0.31738
+        },
+        {
+          "id": "b0b4791572dd-2",
+          "documento_id": "b0b4791572dd",
+          "documento": "guia_rag.md",
+          "texto": "muito grandes podem misturar temas e incluir informações irrelevantes. A sobreposição repete uma parte do trecho anterior para preservar continuidade nas fronteiras. Cada chunk deve guardar um identificador e o nome do documento de origem, permitindo rastrear a informação recuperada. ## Recuperação lexical TF-IDF representa textos por pesos associados às palavras. Termos frequentes em um texto, mas menos comuns no conjunto de documentos, recebem maior importância. A similaridade de cosseno compara a direção dos vetores. Os trechos com maior similaridade com a pergunta são selecionados. Essa abordagem funciona sem uma API de embeddings, mas pode falhar quando a pergunta usa sinônimos ou vocabulário diferente do documento. ## Avaliação sem gabarito Na avaliação sem ground truth, não existem respostas humanas de",
+          "inicio_palavra": 100,
+          "fim_palavra": 220,
+          "similaridade": 0.15029
+        },
+        {
+          "id": "b0b4791572dd-1",
+          "documento_id": "b0b4791572dd",
+          "documento": "guia_rag.md",
+          "texto": "# Guia de RAG e avaliação ## Recuperação de informações Retrieval-Augmented Generation (RAG) combina recuperação de documentos com geração de texto. Primeiro, o sistema divide os documentos em trechos menores chamados chunks. Uma pergunta é comparada com esses trechos, e os mais relevantes são enviados ao modelo de linguagem como contexto. A resposta deve se apoiar no conteúdo recuperado. Se o contexto não contém a informação solicitada, o modelo deve declarar que não há informação suficiente. ## Chunkização A chunkização divide um documento em unidades de recuperação. Chunks muito pequenos podem perder o contexto necessário para compreender uma ideia. Chunks muito grandes podem misturar temas e incluir informações irrelevantes. A sobreposição repete uma parte do trecho anterior para preservar continuidade",
+          "inicio_palavra": 0,
+          "fim_palavra": 120,
+          "similaridade": 0.10488
+        }
+      ],
+      "resposta": "Um modelo de linguagem atuando como juiz na avaliação sem gabarito deve seguir critérios explícitos e produzir notas acompanhadas de justificativas. Os principais critérios incluem: 1. **Faithfulness**: mede se as afirmações da resposta são sustentadas pelos contextos recuperados. Uma resposta pode ser plausível, mas receber uma nota baixa se apresentar informações que não estão nas fontes. 2. **Answer Relevancy**: avalia se a resposta atende à pergunta de forma pertinente e direta. 3. **Context Utilization**: considera como a resposta utiliza o contexto recuperado para fundamentar suas afirmações. Esses critérios são essenciais para garantir uma avaliação justa e precisa, mesmo na ausência de respostas de referência (chunks: b0b4791572dd-3, b0b4791572dd-2).",
+      "metricas": {
+        "faithfulness": {
+          "nota": 1.0,
+          "justificativa": "A resposta apresenta afirmações que são diretamente sustentadas pelos contextos recuperados, como a definição de 'Faithfulness', 'Answer Relevancy' e 'Context Utilization'. Todas as informações mencionadas na resposta estão alinhadas com o que foi descrito nos contextos."
+        },
+        "answer_relevancy": {
+          "nota": 1.0,
+          "justificativa": "A resposta aborda diretamente a pergunta sobre os critérios que um modelo de linguagem deve seguir ao atuar como juiz na avaliação sem gabarito. Todos os critérios mencionados são relevantes e pertinentes à questão proposta."
+        },
+        "context_utilization": {
+          "nota": 1.0,
+          "justificativa": "A resposta utiliza informações dos contextos de forma completa, mencionando os critérios de avaliação e explicando cada um deles, conforme descrito nos trechos recuperados. Não há informações irrelevantes que tenham sido incluídas."
+        }
+      },
+      "modelo_gerador": "gpt-4o-mini",
+      "criado_em": "2026-09-06T01:19:57.751278+00:00",
+      "top_k": 3,
+      "modelo_resposta": "gpt-4o-mini",
+      "modelo_juiz": "gpt-4o-mini",
+      "avaliado_em": "2026-09-06T01:20:51.270016+00:00"
+    },
+    {
+      "id": "9e15b15b-ebdf-49e4-9305-032fdb5d8d95",
+      "pergunta": "Quais são as regras para a renovação de livros na Biblioteca Horizonte?",
+      "persona": null,
+      "fonte": {
+        "documento": "politica_biblioteca.md",
+        "chunk_id": "73bcb3d8782b-1"
+      },
+      "contextos": [
+        {
+          "id": "73bcb3d8782b-1",
+          "documento_id": "73bcb3d8782b",
+          "documento": "politica_biblioteca.md",
+          "texto": "# Biblioteca Horizonte — documento fictício para demonstração ## Empréstimos Estudantes podem retirar até três livros simultaneamente, por um prazo de quatorze dias. Professores podem retirar até cinco livros, por vinte e oito dias. A retirada exige apresentação da identificação institucional. Obras de referência, como dicionários e enciclopédias, ficam disponíveis apenas para consulta no local. ## Renovação e reservas A renovação pode ser feita até duas vezes pelo portal da biblioteca, desde que o livro não tenha reservas de outros leitores. Quando uma obra emprestada é reservada, o próximo leitor recebe uma notificação após a devolução e tem quarenta e oito horas para retirá-la. Depois desse prazo, a reserva passa para a pessoa seguinte na fila. ## Atrasos e atendimento",
+          "inicio_palavra": 0,
+          "fim_palavra": 120,
+          "similaridade": 0.25587
+        },
+        {
+          "id": "73bcb3d8782b-2",
+          "documento_id": "73bcb3d8782b",
+          "documento": "politica_biblioteca.md",
+          "texto": "oito horas para retirá-la. Depois desse prazo, a reserva passa para a pessoa seguinte na fila. ## Atrasos e atendimento O atraso na devolução suspende novos empréstimos por um dia para cada dia de atraso. A biblioteca não cobra multas em dinheiro. O atendimento presencial ocorre de segunda a sexta-feira, das oito às vinte horas, e aos sábados, das nove às treze horas. Em feriados, não há atendimento presencial e os prazos de devolução são transferidos para o próximo dia de funcionamento. ## Espaços de estudo As salas de estudo em grupo comportam até seis pessoas. A reserva deve ser feita no portal com até sete dias de antecedência e dura no máximo duas horas. Há tolerância de quinze minutos",
+          "inicio_palavra": 100,
+          "fim_palavra": 220,
+          "similaridade": 0.14278
+        },
+        {
+          "id": "b0b4791572dd-2",
+          "documento_id": "b0b4791572dd",
+          "documento": "guia_rag.md",
+          "texto": "muito grandes podem misturar temas e incluir informações irrelevantes. A sobreposição repete uma parte do trecho anterior para preservar continuidade nas fronteiras. Cada chunk deve guardar um identificador e o nome do documento de origem, permitindo rastrear a informação recuperada. ## Recuperação lexical TF-IDF representa textos por pesos associados às palavras. Termos frequentes em um texto, mas menos comuns no conjunto de documentos, recebem maior importância. A similaridade de cosseno compara a direção dos vetores. Os trechos com maior similaridade com a pergunta são selecionados. Essa abordagem funciona sem uma API de embeddings, mas pode falhar quando a pergunta usa sinônimos ou vocabulário diferente do documento. ## Avaliação sem gabarito Na avaliação sem ground truth, não existem respostas humanas de",
+          "inicio_palavra": 100,
+          "fim_palavra": 220,
+          "similaridade": 0.06397
+        }
+      ],
+      "resposta": "A renovação de livros na Biblioteca Horizonte pode ser feita até duas vezes pelo portal da biblioteca, desde que o livro não tenha reservas de outros leitores. Quando uma obra emprestada é reservada, o próximo leitor recebe uma notificação após a devolução e tem quarenta e oito horas para retirá-la. (Chunk ID: 73bcb3d8782b-1)",
+      "metricas": {
+        "faithfulness": {
+          "nota": 1.0,
+          "justificativa": "A resposta apresenta informações que estão diretamente sustentadas pelo contexto fornecido, especificamente sobre a renovação de livros na Biblioteca Horizonte, que pode ser feita até duas vezes pelo portal, desde que não haja reservas."
+        },
+        "answer_relevancy": {
+          "nota": 1.0,
+          "justificativa": "A resposta aborda diretamente a pergunta sobre as regras para a renovação de livros, fornecendo detalhes específicos que são relevantes e necessários para entender o processo."
+        },
+        "context_utilization": {
+          "nota": 1.0,
+          "justificativa": "A resposta utiliza completamente as informações relevantes do contexto, que explicam claramente as regras de renovação de livros, sem deixar de fora nenhum detalhe importante."
+        }
+      },
+      "modelo_gerador": "gpt-4o-mini",
+      "criado_em": "2026-09-06T01:19:59.261994+00:00",
+      "top_k": 3,
+      "modelo_resposta": "gpt-4o-mini",
+      "modelo_juiz": "gpt-4o-mini",
+      "avaliado_em": "2026-09-06T01:20:53.323361+00:00"
+    }
+  ],
+  "personas": []
+}
