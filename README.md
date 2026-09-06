@@ -168,9 +168,9 @@ Os testes substituem a LLM por respostas controladas para validar o contrato sem
 
 ## Demonstração em vídeo
 
-**[Assistir ou baixar o vídeo de demonstração (MP4, 2min09s)](https://github.com/betitanx/rag-avalia/raw/refs/heads/main/docs/demonstracao.mp4)**
+**[Vídeo de demonstração (MP4, 2min09s)](docs/demonstracao.mp4)**
 
-O vídeo apresenta o fluxo e os resultados reais de uma execução com OpenAI, exportados pela API. É uma apresentação dos dados, não uma captura contínua da interface. O [JSON da execução real](docs/resultado-real.json) permite conferir perguntas, contextos, respostas e justificativas. Há também um [roteiro para gravação da interface](docs/roteiro-video.md).
+O vídeo apresenta o fluxo e os resultados reais de uma execução com OpenAI, exportados pela API. É uma apresentação dos dados, não uma captura contínua da interface. O [JSON da execução real](docs/resultado-real.json) permite conferir perguntas, contextos, respostas e justificativas.
 
 ### Validação realizada
 
