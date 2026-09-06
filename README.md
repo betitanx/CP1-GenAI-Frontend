@@ -17,8 +17,8 @@ Checkpoint integrado de **IA Generativa e Front-end — 2TIAPF (Manhã)**. Aplic
 Requisitos: Python 3.11 ou superior, Git e uma chave de API OpenAI com acesso ao modelo configurado e saldo disponível. As chamadas à LLM podem gerar cobrança pelo provedor. A chave fica exclusivamente no `.env` local e não deve ser enviada ao GitHub.
 
 ```bash
-git clone https://github.com/betitanx/rag-avalia.git
-cd rag-avalia
+git clone https://github.com/betitanx/CP1-GenAI-Frontend.git
+cd CP1-GenAI-Frontend
 python -m venv .venv
 ```
 
